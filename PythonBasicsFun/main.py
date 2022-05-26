@@ -34,3 +34,24 @@ for i in range(len(matrix)):
     for j in range(len(matrix[i])):
         print(matrix[i][j], end=" ")
     print()
+
+def add_one(table):
+    for i in range(len(table)):
+        for j in range(len(table[i])):
+            table[i][j] += 1
+
+print("matrix before:", matrix)
+add_one(matrix)
+print("matrix after:", matrix)
+# objects are pass by object reference in python
+# which means that references are copied by value
+# and with a copy of the reference, you can modify the object
+# the reference refers to
+# https://robertheaton.com/2014/02/09/pythons-pass-by-object-reference-as-explained-by-philip-k-dick/
+
+def clear_out(table):
+    table = []
+
+print("matrix before:", matrix)
+clear_out(matrix)
+print("matrix after:", matrix) 

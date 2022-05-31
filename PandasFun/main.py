@@ -100,26 +100,20 @@ print(grouped_by_class["Population"].mean())
 # let's save our merged_df to a file
 merged_df.to_csv("merged.csv")
 
-# warm up
+#warm up
 large_df = grouped_by_class.get_group("Large")
 print(large_df)
-# another way to do this
-# use boolean indexing
-large_df = merged_df[merged_df["Class"] == "Large"]
+
+large_df = merged_df(merged_df["class"] == "Large")
 print(large_df)
-
-# value_counts
-print(len(merged_df["Class"].value_counts()))
-print(merged_df["Class"].unique())
-
-# append
-new_row_ser = pd.Series([18.8, "Large", "S"], name="Guangzhou", 
-    index=merged_df.columns)
+#value_counts
+print(len(merged_df["class"].value_counts()))
+print(merged_df["class"].unique())
+#append
+new_row_ser = pd.Series([18.8,"Large","S"],name="Guangzhou",index=merged_df.columns)
 merged_df = merged_df.append(new_row_ser)
 print(merged_df)
-
-# sort_values
-merged_df = merged_df.sort_values("Population", ascending=False)
-# largest populations at the top of the dataframe (smallest
-# at the bottom)
+#sort_values
+merged_df = merged_df.sort_values("population",ascending=False)
 print(merged_df)
+
